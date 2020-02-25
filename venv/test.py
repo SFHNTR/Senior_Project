@@ -1,9 +1,13 @@
 import urllib.request
 from bs4 import BeautifulSoup
-userUrl = input("Enter Url: ")
+import nltk
+userUrl = "https://www.cnbc.com/2020/02/25/apple-and-johnson-johnson-launch-study-to-predict-stroke-risk-with-apple-watch.html"
 webUrl  = urllib.request.urlopen(userUrl)
-soup = BeautifulSoup(webUrl.read())
-for script in soup(["script", "style","li", "nav"]): #You need to extract this <script> and <style> tags
-    script.extract() #strip them off
-print(soup.get_text('\n'))
-
+article = BeautifulSoup(webUrl.read())
+#finds all the paragraphs in the article, puts this data into an array
+paragraphs = article.find_all('p')
+articleText = ""
+#for all the paragraphs in the array, put it into one string
+for p in paragraphs:
+    articleText += p.text
+sentence_list = nltk.sent_tokenize(articleText)
