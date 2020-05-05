@@ -52,3 +52,6 @@ def summarizetext(userUrl):
     summary = heapq.nlargest(7, sentenceScores, key=sentenceScores.get)
     summary = '\n'.join(summary)
     return summary
+
+def nltkdownload():
+    nltk.download()
