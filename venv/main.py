@@ -4,7 +4,7 @@ from summarize import summarizetext
 from summarize import nltkdownload
 
 r = tk.Tk()
-summaryLabel = Label(r, text = "If this is your first time running this program, please his the download NLTK Data button", width = 100, wraplength = 400, justify = "left")
+summaryLabel = Label(r, text = "If this is your first time running this program, please his the download NLTK Data button.", width = 100, wraplength = 400, justify = "left")
 def summarizebuttonaction():
     summaryText = summarizetext(inputUrl.get())
     summaryLabel.config(text = summaryText)

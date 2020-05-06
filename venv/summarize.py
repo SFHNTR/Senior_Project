@@ -49,8 +49,8 @@ def summarizetext(userUrl):
                     else:
                         sentenceScores[sent] += wordFrequency[word]
 
-    summary = heapq.nlargest(7, sentenceScores, key=sentenceScores.get)
-    summary = '\n'.join(summary)
+    summary = heapq.nlargest(5, sentenceScores, key=sentenceScores.get)
+    summary = ' '.join(summary)
     return summary
 
 def nltkdownload():
